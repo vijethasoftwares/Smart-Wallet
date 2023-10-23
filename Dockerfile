@@ -7,7 +7,8 @@ WORKDIR /
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Install application dependencies
+# Install application dependencies using npm 8
+RUN npm install -g npm@8
 RUN npm install
 
 # Copy all application files to the working directory
