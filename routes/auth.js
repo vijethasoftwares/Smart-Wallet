@@ -5,10 +5,23 @@ const router = express.Router();
 // Import middleware modules
 const jwtMiddleware = require('../middleware/jwtMiddleware');
 
+const hosting = async (req, res) => {
+    try {
+      // Your hosting logic goes here
+      // You can add code to serve HTML, CSS, or other resources to the client
+  
+      res.status(200).json({ message: "Hosting is active" });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: "Hosting failed" });
+    }
+  };
+  
+router.get('/', hosting);
 // Registration route
 router.post('/setSystemAdmin', authController.systemAdminInitialize);
+
 router.post('/systemAdmin/login', authController.systemAdminLogin);
-router.get('/', authController.hosting);
 
 // Login route
 router.post('/user/registerUser', authController.registerUser);
