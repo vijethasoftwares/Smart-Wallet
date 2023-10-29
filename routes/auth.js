@@ -23,7 +23,7 @@ router.post('/userOpsBuilder', jwtMiddleware, authController.userOpsBuilder);
 // Route to get user wallet and balance with JWT middleware applied
 router.get('/user/getWalletAndBalance', jwtMiddleware, authController.getUserWalletAndBalance);
 router.get('/systemAdmin/getWalletAndBalance', jwtMiddleware, authController.getASystemAdminWalletAndBalance);
-// router.get('/getProfile', jwtMiddleware, authController.getProfile);
+router.get('/getProfile', jwtMiddleware, authController.getProfile);
 
 // Logout route
 router.post('/user/logout', authController.userLogout);

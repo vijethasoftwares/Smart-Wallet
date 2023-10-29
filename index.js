@@ -15,8 +15,9 @@ const port = process.env.PORT || 8003;
 
 app.use(bodyParser.json());
 const corsOptions = {
-  origin: 'http://localhost:3000', // Replace with your React app's origin
+  origin: '*', // Allow requests from all origins
 };
+
 
 app.use(cors(corsOptions)); // Use the cors middleware with the specified options
 

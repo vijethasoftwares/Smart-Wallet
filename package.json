@@ -23,6 +23,7 @@
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
+    "typescript": "^5.2.2",
     "userop": "^0.3.3",
     "web3": "^4.1.1"
   }

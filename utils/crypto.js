@@ -4,7 +4,7 @@ const { signTransactionScript } = require("../scripts/signTx.js");
 let web3;
 
 try {
-  web3 = new Web3(new Web3.providers.HttpProvider(process.env.WEB3_PROVIDER_URL));
+  web3 = new Web3(new Web3.providers.HttpProvider(process.env.RPC_URL));
 } catch (error) {
   // Handle the error here, you can log it or perform any necessary error handling
   console.error('Error creating web3 instance:', error);
