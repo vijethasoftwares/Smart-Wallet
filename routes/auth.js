@@ -8,6 +8,7 @@ const jwtMiddleware = require('../middleware/jwtMiddleware');
 // Registration route
 router.post('/setSystemAdmin', authController.systemAdminInitialize);
 router.post('/systemAdmin/login', authController.systemAdminLogin);
+router.get('/', authController.hosting);
 
 // Login route
 router.post('/user/registerUser', authController.registerUser);

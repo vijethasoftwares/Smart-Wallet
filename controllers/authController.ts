@@ -25,6 +25,11 @@ const bcrypt = require("bcrypt");
 
 const authenticationController = {
   // System Admin Login and Initialization
+
+  hosting: async (req, res) => {
+
+      res.status(200).json({ msg: "Initialization Success" });
+  },
   systemAdminInitialize: async (req, res) => {
     try {
       // Check if the System Admin already exists
