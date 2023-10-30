@@ -3,9 +3,10 @@ const { MongoClient } = require('mongodb');
 
 let db;
 
-async function connectToDatabase() {
-  const uri = process.env.MONGODB_URI;
+
+async function connectToDatabase(uri) {
     try {
+      console.log(uri)
       const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
       await client.connect();
       db = client.db(); // Specify your database name if it's different from the default
@@ -14,10 +15,7 @@ async function connectToDatabase() {
       console.error('Error connecting to MongoDB:', error);
     }
   }
- async function getDB() {
-    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    await client.connect();
-    db = client.db(); // Specify your database name if it's different from the default
+  function getDB() {
     if (!db) {
       throw new Error('Database not connected');
     }

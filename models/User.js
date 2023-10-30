@@ -6,7 +6,6 @@ class User {
     email,
     password,
     walletAddress,
-    smartWalletAddress,
     encryptedPrivateKey,
     user_type,
     user_country,
@@ -15,7 +14,6 @@ class User {
     this.email = email;
     this.password = password;
     this.walletAddress = walletAddress;
-    this.smartWalletAddress=smartWalletAddress;
     this.encryptedPrivateKey = encryptedPrivateKey;
     this.user_type = user_type;
     this.user_country=user_country,

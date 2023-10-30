@@ -12,6 +12,7 @@ const { connectToDatabase } = require('./config/db'); // Import the database con
 
 const app = express();
 const port = process.env.PORT || 8003;
+const mongodbURI = process.env.MONGODB_URI || '';
 
 app.use(bodyParser.json());
 const corsOptions = {
@@ -23,7 +24,7 @@ app.use(cors(corsOptions)); // Use the cors middleware with the specified option
 
 
 // Connect to MongoDB
-connectToDatabase();
+connectToDatabase(mongodbURI);
 
 
 // Initialize Passport middleware
