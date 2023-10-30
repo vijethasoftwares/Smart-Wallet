@@ -49,6 +49,12 @@ var rpcUrl = process.env.RPC_URL || "";
 var bcrypt = require("bcrypt");
 var authenticationController = {
     // System Admin Login and Initialization
+    hosting: function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            res.status(200).json({ msg: "Initialization Success" });
+            return [2 /*return*/];
+        });
+    }); },
     systemAdminInitialize: function (req, res) { return __awaiter(_this, void 0, void 0, function () {
         var existingAdmin, _a, email, password, wallet, encryptedPrivateKey, user, err_1;
         return __generator(this, function (_b) {
