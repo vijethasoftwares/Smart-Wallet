@@ -389,7 +389,7 @@ const authenticationController = {
   userOpsBuilder: async (req, res) => {
     try {
       const { contract, getUserOp, password } = req.body;
-      console.log("userop:", getUserOp);
+      console.log("userop:", getUserOp,password);
 
       // Verify the JWT token and retrieve the user's ID
       const { email } = req.user; // Use req.user instead of localStorage
@@ -432,6 +432,7 @@ const authenticationController = {
       const privateKey = decrypt(user.encryptedPrivateKey, password);
 
       const signer = new ethers.Wallet(privateKey);
+      console.log("prvt key",privateKey)
 
       const paymasterContext = { type: "payg" };
       const paymasterMiddleware = Presets.Middleware.verifyingPaymaster(
@@ -470,7 +471,7 @@ const authenticationController = {
       });
     } catch (err) {
       console.log(err);
-      res.status(500).json({ error: "Failed Building User Ops " });
+      res.status(500).json({ error: err });
     }
   },
   // userOpsBuilderWithCustomERC20: async (req, res) => {
