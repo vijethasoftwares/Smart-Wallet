@@ -5,8 +5,11 @@ let db;
 
 
 async function connectToDatabase(uri) {
+
     try {
-      console.log(uri)
+      if (!process.env.MONGODB_URI) {
+  throw new Error('No MongoDB URI provided. Please set the MONGODB_URI environment variable.');
+}
       const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
       await client.connect();
       db = client.db(); // Specify your database name if it's different from the default
@@ -21,5 +24,5 @@ async function connectToDatabase(uri) {
     }
     return db;
   }
-  
+  connectToDatabase(process.env.MONGODB_URI)
   module.exports = { connectToDatabase, getDB };
