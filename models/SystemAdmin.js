@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 
 class SystemAdmin {
   constructor({
+    
     email,
     password,
     walletAddress,
@@ -10,6 +11,7 @@ class SystemAdmin {
     phoneNumber,
     user_type,
   }) {
+    
     this.email = email;
     this.password = password;
     this.walletAddress = walletAddress;

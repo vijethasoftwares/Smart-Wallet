@@ -1,8 +1,8 @@
 # Use an official Node.js runtime as a base image
-FROM node:14
+FROM node:18
 
 # Set the working directory in the container
-WORKDIR /
+WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
@@ -17,5 +17,5 @@ COPY . .
 # Expose the port your application will run on
 EXPOSE 8003
 
-# Define the command to run your Node.js application
-CMD [ "node", "index.js" ]
+# Use a process manager to run your Node.js application
+CMD [ "npm", "start" ]

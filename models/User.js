@@ -3,6 +3,8 @@ const bcrypt = require('bcrypt');
 
 class User {
   constructor({
+    firstName,
+    lastName,
     email,
     password,
     walletAddress,
@@ -12,6 +14,8 @@ class User {
     user_country,
     emailPending,
   }) {
+    this.firstName=firstName;
+    this.lastName=lastName;
     this.email = email;
     this.password = password;
     this.walletAddress = walletAddress;

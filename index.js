@@ -44,4 +44,3 @@ app.listen(port, () => {
   console.log(`Backend Server is running on port ${port}`);
 });
 
-export default app

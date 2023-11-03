@@ -12,14 +12,14 @@ try {
   throw new Error('Error creating web3 instance'); // Customize the error handling as needed
 }
 function encrypt(text, encryptionKey) {
-  const cipher = crypto.createCipher('aes-256-cbc', encryptionKey);
+  const cipher = crypto.createCipheriv('aes-256-cbc', encryptionKey);
   let encryptedText = cipher.update(text, 'utf8', 'hex');
   encryptedText += cipher.final('hex');
   return encryptedText;
 }
 
 function decrypt(encryptedText, encryptionKey) {
-  const decipher = crypto.createDecipher('aes-256-cbc', encryptionKey);
+  const decipher = crypto.createDecipheriv('aes-256-cbc', encryptionKey);
   let decryptedText = decipher.update(encryptedText, 'hex', 'utf8');
   decryptedText += decipher.final('utf8');
   return decryptedText;

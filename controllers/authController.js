@@ -71,7 +71,7 @@ const authenticationController = {
 
   registerUser: async (req, res) => {
     try {
-      const { email, password, phoneNumber, user_country } = req.body;
+      const {firstName,lastName, email, password, phoneNumber, user_country } = req.body;
 
       // Check if the email is already registered
       const existingUser = await User.findByEmail(email);
@@ -117,6 +117,8 @@ const authenticationController = {
 
       // Create a new user with the email, hashed password, wallet details, and user type
       const user = new User({
+        firstName,
+        lastName,
         email,
         password: password,
         walletAddress: wallet.address,
@@ -623,10 +625,13 @@ const authenticationController = {
       const user = await User.findByEmail(email);
 
       // Assuming user has a userType and walletAddress property
-      const { userType, walletAddress, user_country, emailPending } = user;
+      const { userType, walletAddress, user_country, emailPending,firstName,lastName } = user;
+      console.log(user)
 
       res.json({
         user: {
+          firstName,
+          lastName,
           email,
           user_country,
           userType,
